@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    {{message}}
+    {% block body %}
+        <ol>
+        {% for i, t in enumeratedResults %}
+            <li>{{t.name}}</li>
+        {% endfor %}
+        </ol>
+    {% endblock %}
 </body>
 </html>
