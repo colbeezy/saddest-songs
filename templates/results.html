@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Saddest Songs by Artist</title>
+</head>
+<body>
+    {% block body %}
+    <table>
+            <tr>
+                <th>Track</th>
+                <th>Valance</th>
+            </tr>
+            {% for i, t in namesAndVales %}
+            <tr>
+                <td>{{i}}</td>
+                <td>{{t}}</td>
+            {% endfor %}
+
+    </table>
+    {% endblock %}
+
+</body>
+</html>
