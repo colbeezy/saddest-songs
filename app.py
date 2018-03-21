@@ -37,8 +37,9 @@ def artist_lookup():
             features = sp.audio_features(track_ids)
             track_valences = []
             for feature in features:
-                track_valences.append('{0:.0f}%'.format(feature['valence']*100))
+                track_valences.append(int('{0:.0f}'.format(feature['valence']*100)))
             namesAndVales = sorted(zip(track_names, track_valences), key=lambda x: x[1])
+            
             return render_template('results.html', namesAndVales=namesAndVales)
 
     # User reached route via GET (as by clicking a link or via redirect)
