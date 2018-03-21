@@ -1,7 +1,9 @@
+from __future__ import division
 from flask import Flask, render_template, request
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy.util as util
+
 
 client_credentials_manager = SpotifyClientCredentials()
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
@@ -35,7 +37,7 @@ def artist_lookup():
             features = sp.audio_features(track_ids)
             track_valences = []
             for feature in features:
-                track_valences.append(feature['valence'])
+                track_valences.append('{0:.0f}%'.format(feature['valence']*100))
             namesAndVales = sorted(zip(track_names, track_valences), key=lambda x: x[1])
             return render_template('results.html', namesAndVales=namesAndVales)
 
