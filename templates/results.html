@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Saddest Songs by Artist</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block main %}
     {% block body %}
-    <table>
+    <table class=table>
+        <thead class="thead-dark">
             <tr>
-                <th>Track</th>
-                <th>Positivity Score</th>
+                <th scope="col">Track</th>
+                <th scope="col">Positivity Score</th>
             </tr>
+        </thead>
+        <tbody>
             {% for i, t in namesAndVales %}
             <tr>
                 <td>{{i}}</td>
                 <td>{{t}}%</td>
-            {% endfor %}
-
+           </tr>
+           {% endfor %}
+        </tbody>
     </table>
     {% endblock %}
-
-</body>
-</html>
+{% endblock %}
