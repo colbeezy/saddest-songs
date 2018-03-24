@@ -5,15 +5,17 @@
     <table class=table>
         <thead class="thead-dark">
             <tr>
+                <th scope="col">Ranking</th>
                 <th scope="col">Track</th>
-                <th scope="col">Positivity Score</th>
+                <th scope="col">Sadness Score</th>
             </tr>
         </thead>
         <tbody>
             {% for i, t in namesAndVales %}
             <tr>
+                <th scope="row">{{loop.index}}</th>
                 <td>{{i}}</td>
-                <td>{{t}}%</td>
+                <td>{{100-t}}%</td>
            </tr>
            {% endfor %}
         </tbody>
